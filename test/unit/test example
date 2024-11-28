@@ -1,0 +1,34 @@
+const { Draggable } = require("../src/draggable");
+
+function supportFn(){
+    return (typeof window?.PointerEvent !== 'undefined') ? true : false;
+}
+const supportFn = Draggable.canSupportPointerEvent;
+
+describe("mouse & drag pointer test", () => {
+    beforeEach(() => {
+        el = document.createElement("div");
+        document.body.appendChild(el);
+        Draggable.canSupportPointerEvent = () => false;
+    });
+    afterEach(() => {
+        draggable && draggable.destroy();
+        document.body.removeChild(el);
+        Draggable.canSupportPointerEvent = supportFn;
+    });
+    describe("Press", () => {
+        beforeEach(() => {
+            handler = jasmine.createSpy("onPress");
+            draggable = new Draggable({
+                press: handler
+            });
+            draggable.bindTo(el);
+        });
+        it('executes press with coordinates on mousedown', () => {
+            mousedown(el, 100, 200);
+            const args = handler.calls.mostRecent().args[0];
+            expect(args.pageX).toEqual(100);
+            expect(args.pageY).toEqual(200);
+        });
+         ....
+   })

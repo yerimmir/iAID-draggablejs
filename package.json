@@ -1,0 +1,80 @@
+{
+  "name": "@iaid-o/draggablejs",
+  "version": "0.0.4",
+  "engines": {
+    "node": ">=18.12.1",
+    "npm": ">= 8.19.2"
+  },
+  "author": "iAID",
+  "main": "./lib/index.js",
+  "typings": "./types/index.d.ts",
+  "scripts": {
+    "start": "npm run watch & gulp",
+    "start:debug": "npm run watch",
+    "build": "npm run compile && gulp build",
+    "tsc": "tsc -d --declarationDir ./types --removeComments --module CommonJS || echo \"tsc faild for some file(s).\"",
+    "test": "node ./test/import-test.js && mocha-headless-chrome -f ./test/unit-tests.html -a disable-web-security",
+    "test:watch": "del /s /f /q \"./parcel-cache\" && parcel serve ./test/unit-tests.html",
+    "rollup": "rollup -c",
+    "clean": "del /S /Q .\\lib\\* && del /S /Q .\\types\\*",
+    "compile": "npm run clean && npm run tsc && npm run rollup",
+    "watch": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/resize-observer-browser": "^0.1.7",
+    "assert": "^2.0.0",
+    "chai": "4.2.0",
+    "console-browserify": "^1.2.0",
+    "events": "^3.3.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-exec": "^4.0.0",
+    "gulp-jscpd": "0.0.8",
+    "gulp-jsdoc3": "^2.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-typescript": "^5.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "mocha": "6.2.2",
+    "mocha-headless-chrome": "^2.0.3",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "prettier": "^1.19.1",
+    "process": "^0.11.10",
+    "rollup": "^1.27.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "sinon-chai": "^3.7.0",
+    "typescript": "^3.7.2",
+    "util": "^0.12.4"
+  },
+  "keywords": [
+    "canvas",
+    "animations",
+    "graphic",
+    "html5",
+    "drag event",
+    "event handler"
+  ],
+  "prettier": {
+    "singleQuote": true
+  },
+  "browser": {
+    "canvas": false,
+    "jsdom": false
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/jest": "^28.1.6",
+    "commander": "^9.4.1",
+    "lodash": "^4.17.21",
+    "parcel": "^2.5.0",
+    "sinon": "^15.0.1"
+  }
+}

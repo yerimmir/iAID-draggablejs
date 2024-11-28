@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "module": "es2015",
+    "target": "es5",
+    "noEmitOnError": true,
+    "lib": ["es2015", "dom"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "removeComments": false,
+    "strict": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "include": ["./src/*.ts"],
+    "exclude": ["node_modules"]
+}

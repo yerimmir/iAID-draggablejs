@@ -1,0 +1,110 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add --dev jasmine-brower-runner
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;%ANACONDA_ROOT%;C:\Users\yerim\AppData\Local\Microsoft\WindowsApps;C:\Users\yerim\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\yerim\AppData\Roaming\npm\node_modules\yarn\bin;C:\Users\yerim\AppData\Roaming\npm;C:\Users\yerim\AppData\Local\Yarn\bin;C:\Users\yerim\.yarn-global\bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.12.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/jasmine-brower-runner: Not found
+      at params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66145:18)
+      at self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "@iaid/draggablejs",
+    "version": "0.0.1",
+    "author": "iAID",
+    "files": [
+      "main.js",
+      "lib"
+    ],
+    "main": "./lib/index.js",
+    "typings": "./types/index.d.ts",
+    "scripts": {
+      "start": "npm run watch & gulp",
+      "start:debug": "npm run watch",
+      "build": "npm run compile && gulp build",
+      "test": "node ./test/import-test.js && mocha-headless-chrome -f ./test/unit-tests.html -a disable-web-security",
+      "test:watch": "del /s /f /q \"./parcel-cache\" && parcel serve ./test/unit-tests.html ",
+      "rollup": "rollup -c",
+      "clean": "del /S /Q .\\lib\\* && del /S /Q .\\types\\*",
+      "compile": "npm run clean && npm run tsc && copy /Y .\\src\\index.d.ts .\\types && npm run rollup",
+      "watch": "rollup -c -w"
+    },
+    "devDependencies": {
+      "@types/chai": "^4.3.4",
+      "@types/resize-observer-browser": "^0.1.7",
+      "assert": "^2.0.0",
+      "chai": "4.2.0",
+      "console-browserify": "^1.2.0",
+      "gulp": "^4.0.2",
+      "gulp-concat": "^2.6.1",
+      "gulp-connect": "^5.7.0",
+      "gulp-eslint": "^6.0.0",
+      "gulp-exec": "^4.0.0",
+      "gulp-jscpd": "0.0.8",
+      "gulp-jsdoc3": "^2.0.0",
+      "gulp-rename": "^1.4.0",
+      "gulp-replace": "^1.0.0",
+      "gulp-typescript": "^5.0.1",
+      "gulp-uglify": "^3.0.2",
+      "gulp-util": "^3.0.8",
+      "jasmine": "^4.5.0",
+      "jasmine-browser-runner": "^1.2.0",
+      "jasmine-core": "^4.5.0",
+      "mocha": "6.2.2",
+      "mocha-headless-chrome": "^2.0.3",
+      "prettier": "^1.19.1",
+      "process": "^0.11.10",
+      "rollup": "^1.27.0",
+      "rollup-plugin-commonjs": "^10.1.0",
+      "rollup-plugin-node-resolve": "^5.2.0",
+      "rollup-plugin-sourcemaps": "^0.4.2",
+      "rollup-plugin-typescript2": "^0.25.2",
+      "typescript": "^3.7.2",
+      "util": "^0.12.4"
+    },
+    "keywords": [
+      "canvas",
+      "animations",
+      "graphic",
+      "html5"
+    ],
+    "prettier": {
+      "singleQuote": true
+    },
+    "browser": {
+      "canvas": false,
+      "jsdom": false
+    },
+    "license": "MIT",
+    "dependencies": {
+      "@types/jest": "^28.1.6",
+      "lodash": "^4.17.21",
+      "parcel": "^2.5.0",
+      "puppeteer": "^19.4.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
